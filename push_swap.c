@@ -3,6 +3,16 @@
 
 List	*initialize();
 
+void	printlist(List	*stack)
+{
+	struct Item *p_temp = stack->first;
+        while (p_temp != NULL)
+        {
+            ft_printf("%d\n", p_temp->value);
+            p_temp = p_temp->next;
+        }
+}
+
 int main(int argc, char *argv[])
 {
 	struct List	*a_stack;
@@ -20,11 +30,11 @@ int main(int argc, char *argv[])
 		Stacking_end(a_stack, ft_atoi(*formatted++));
 	//sort a
 	//afficher a
-	struct Item *p_temp = a_stack->first;
-        while (p_temp)
-        {
-            ft_printf("%d\n", p_temp->value);
-            p_temp = p_temp->next;
-        }
+	ft_printf("valeur first = %d\n", a_stack->first->value);
+	ft_printf("valeur last = %d\n", a_stack->last->value);
+	printlist(a_stack);
+        swap(a_stack);
+        ft_printf("after swap\n");
+        printlist(a_stack);
 	return 0;
 }

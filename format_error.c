@@ -53,7 +53,7 @@ int	check_double(char **tab)
 }
 
 
-static int	ft_isspace(char str)
+int	ft_isspace(char str)
 {
 	int	result;
 

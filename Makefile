@@ -1,7 +1,7 @@
 NAME = push_swap.a
 CFLAGS = -Wall -Werror -Wextra
 AR = ar -rcs
-SRC = push_swap.c format_error.c moves.c
+SRC = push_swap.c format_error.c moves.c stack_utils.c
 LIBPTF = libftprintf/libftprintf.a
 all: $(NAME)
 OBJ = $(SRC:.c=.o)
