@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nerica <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/06 13:52:48 by nerica            #+#    #+#             */
+/*   Updated: 2024/07/06 13:52:54 by nerica           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-List	*initialize()
+List	*initialize(void)
 {
 	struct Item	*piece;
 	struct List	*stack;
@@ -16,7 +27,7 @@ List	*initialize()
 	piece->next = NULL;
 	piece->previous = NULL;
 	stack->len = 0;
-	stack->first = NULL;	
+	stack->first = NULL;
 	stack->last = NULL;
 	return (stack);
 }
@@ -39,11 +50,11 @@ List	*Stacking_end(List *stack, int data)
 	else
 	{
 		stack->last->next = piece;
-		piece->previous=stack->last;
-		stack->last=piece;
+		piece->previous = stack->last;
+		stack->last = piece;
 	}
 	stack->len++;
-	return(stack);	
+	return (stack);
 }
 
 List	*Stacking_front(List *stack, int data)
@@ -63,10 +74,10 @@ List	*Stacking_front(List *stack, int data)
 	}
 	else
 	{
-		stack->first->previous=piece;
+		stack->first->previous = piece;
 		piece->next = stack->first;
 		stack->first = piece;
 	}
 	stack->len++;
-	return(stack);
+	return (stack);
 }

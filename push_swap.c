@@ -16,9 +16,11 @@ void	printlist(List	*stack)
 int main(int argc, char *argv[])
 {
 	struct List	*a_stack;
+	struct List	*b_stack;
 	char	**formatted;        
 
 	a_stack = initialize();
+	b_stack = initialize();
 	formatted = formatargv(argc, argv);
 	if (!formatted || check_not_numerical(formatted) || check_double(formatted))
 	{
