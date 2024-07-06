@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void	swap(List *stack)
+void	swap(t_list *stack)
 {
-	struct Item	*temp;
-	struct Item	*temp1;
+	t_item	*temp;
+	t_item	*temp1;
 
 	temp = malloc(sizeof(*temp));
 	temp1 = malloc(sizeof(*temp1));
@@ -32,13 +32,11 @@ void	swap(List *stack)
 	temp1->next = temp;
 	stack->first = temp1;
 	temp1->previous = NULL;
-	ft_printf("valeur first in function swap = %d\n", stack->first->value);
-	printlist(stack);
 }
 
-void	rotate(List *stack)
+void	rotate(t_list *stack)
 {
-	struct Item	*temp;
+	t_item	*temp;
 
 	temp = malloc(sizeof(*temp));
 	if (temp == NULL)
@@ -52,9 +50,9 @@ void	rotate(List *stack)
 	stack->last->next = NULL;
 }
 
-void	rev_rotate(List *stack)
+void	rev_rotate(t_list *stack)
 {
-	struct Item	*temp;
+	t_item	*temp;
 
 	temp = malloc(sizeof(*temp));
 	if (temp == NULL)
@@ -68,9 +66,9 @@ void	rev_rotate(List *stack)
 	stack->last->next = NULL;
 }
 
-void	push(List *stack1, List *stack2)
+void	push(t_list *stack1, t_list *stack2)
 {
-	struct Item	*temp;
+	t_item	*temp;
 
 	temp = malloc(sizeof(*temp));
 	if (temp == NULL)

@@ -6,7 +6,7 @@
 /*   By: nerica <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:42:03 by nerica            #+#    #+#             */
-/*   Updated: 2024/07/06 13:42:07 by nerica           ###   ########.fr       */
+/*   Updated: 2024/07/06 14:50:01 by nerica           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,33 +17,33 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef struct Item	Item;
-struct Item	
+typedef struct s_item	t_item;
+struct s_item
 {
-	int	value;
-	int	position;
-	int	cost;
-	Item	*next;
-	Item	*previous;
+	int		value;
+	int		position;
+	int		cost;
+	t_item	*next;
+	t_item	*previous;
 };
-typedef struct List	List;
-struct List
+typedef struct s_list	t_list;
+struct s_list
 {
-	int	len;
-	Item	*first;
-	Item	*last;
-};
+	int		len;
+	t_item	*first;
+	t_item	*last;
+};	
 char	**formatargv(int argc, char *argv[]);
-int	len(char **tab);
-int	check_double(char **tab);
-int	ft_isspace(char str);
-int	check_not_numerical(char **tab);
-void	printlist(List	*stack);
-List	*initialize();
-List	*Stacking_end(List *stack, int data);
-List	*Stacking_front(List *stack, int data);
-void	swap(List *stack);
-void	rotate(List *stack);
-void	rev_rotate(List *stack);
-void	push(List *stack1, List *stack2);
+int		len(char **tab);
+int		check_double(char **tab);
+int		ft_isspace(char str);
+int		check_not_numerical(char **tab);
+void	printlist(t_list	*stack);
+t_list	*initialize(void);
+t_list	*Stacking_end(t_list *stack, int data);
+t_list	*Stacking_front(t_list *stack, int data);
+void	swap(t_list *stack);
+void	rotate(t_list *stack);
+void	rev_rotate(t_list *stack);
+void	push(t_list *stack1, t_list *stack2);
 #endif /*__PUSH_SWAP_H__*/

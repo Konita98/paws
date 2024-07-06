@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-List	*initialize(void)
+t_list	*initialize(void)
 {
-	struct Item	*piece;
-	struct List	*stack;
+	t_item	*piece;
+	t_list	*stack;
 
 	piece = malloc (sizeof(*piece));
 	stack = malloc (sizeof(*stack));
@@ -32,9 +32,9 @@ List	*initialize(void)
 	return (stack);
 }
 
-List	*Stacking_end(List *stack, int data)
+t_list	*Stacking_end(t_list *stack, int data)
 {
-	struct Item	*piece;
+	t_item	*piece;
 
 	piece = malloc (sizeof(*piece));
 	if (!piece)
@@ -57,9 +57,9 @@ List	*Stacking_end(List *stack, int data)
 	return (stack);
 }
 
-List	*Stacking_front(List *stack, int data)
+t_list	*Stacking_front(t_list *stack, int data)
 {
-	struct Item	*piece;
+	t_item	*piece;
 
 	piece = malloc (sizeof(*piece));
 	if (!piece)
