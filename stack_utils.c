@@ -12,6 +12,26 @@
 
 #include "push_swap.h"
 
+char	**formatargv(int argc, char *argv[])
+{
+	char	*args;
+	int	i;
+	char	**tab;
+
+	i = 1;
+	args = argv[i];
+	if (argc <= 2)
+		return (NULL);
+	while(++i < argc)
+	{
+		args = ft_strjoin(args, " ");
+		args = ft_strjoin(args, argv[i]);
+	}
+	tab = ft_split(args, ' ');
+	free(args);
+	return (tab);	
+}
+
 t_list	*initialize(void)
 {
 	t_item	*piece;

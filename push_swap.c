@@ -11,6 +11,35 @@ void	printlist(t_list	*stack)
         }
 }
 
+int	sort_formatted(char **formatted)
+{
+	char	**formatted_tab;
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	j = i + 1;
+	memcpy(formatted_tab, len(formatted), formatted);
+	while(i < len(formatted_tab) - 1)
+	{
+		while(j < len(formattted_tab))
+		{
+			if (formatted_tab[i] > formatted[j])
+			{
+				temp = formatted_tab[j];
+				formatted_tab[j] = formatted_tab[i];
+				formatted_tab[i] =  temp;
+				break;
+			}
+			j++;
+		}
+		if(j = len(formattted_tab) - 1)
+			i++;
+		
+	}
+	
+}
 int main(int argc, char *argv[])
 {
 	t_list	*a_stack;
