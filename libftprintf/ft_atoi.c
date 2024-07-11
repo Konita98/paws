@@ -22,7 +22,7 @@ static int	ft_isspace(char str)
 	return (result);
 }
 
-int	ft_atoi(const char *s)
+long long int	ft_atoi(const char *s)
 {
 	int		i;
 	int		minus;
