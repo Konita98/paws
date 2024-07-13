@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void	printlist(t_list	*stack)
+void	printlist(t_list *stack)
 {
 	t_item *p_temp;
 
@@ -69,18 +69,41 @@ int	*sort_formatted(t_list	*stack)
 	return (formatted_tab);	
 }
 
+void	get_position(t_list *stack)
+{
+	t_item	*p_temp;
+	int	*forma;
+	int i;
 
+	forma = sort_formatted(stack);
+	p_temp = stack->first;
+	i = 0;
+	while(p_temp != NULL)
+	{
+		i = 0;
+		while ( i < stack->len)
+		{
+			if(p_temp->value == forma[i])
+				p_temp->position = i;
+			i++;
+		}
+		p_temp = p_temp->next;
+	}
+}
+
+t_list	*sw_rev_rot(void (*moves)(t_list *stack))
+{
+	if(move = swap(t_list) || stack)
+}
 
 int main(int argc, char *argv[])
 {
 	t_list	*a_stack;
 	//t_list	*b_stack;
 	char	**formatted;
-	int i;
-	t_item	*p_temp;
+	//t_item	*p_temp;
 
 	a_stack = initialize();
-	i = 0;
 	//b_stack = initialize();
 	formatted = formatargv(argc, argv);
 	if (!formatted || check_not_numerical(formatted) || check_double(formatted))
@@ -92,22 +115,14 @@ int main(int argc, char *argv[])
 		Stacking_end(a_stack, ft_atoi(*formatted++));
 	ft_printf("stack\n");
 	printlist(a_stack);
-	ft_printf("\n sorted \n");
-	int	*forma;
-	forma = sort_formatted(a_stack);
-	p_temp = a_stack->first;
-	while(p_temp != NULL)
+	get_position(a_stack);
+	if (a_stack->len == 5)
 	{
-		i = 0;
-		while ( i < a_stack->len)
+		while(a->stack->len > 3)
 		{
-			if(p_temp->value == forma[i])
-				p_temp->position = i;
-			i++;
+			push()
 		}
-		p_temp = p_temp->next;
 	}
-	printlistposition(a_stack);
 	
 	return 0;
 }
