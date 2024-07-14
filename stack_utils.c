@@ -102,14 +102,14 @@ t_list	*Stacking_front(t_list *stack, int data)
 	return (stack);
 }
 
-t_list	*Stacking_end_for_move(t_list *stack, char **data)
+t_list	*Stacking_end_for_move(t_list *stack, int data)
 {
 	t_item	*piece;
 
 	piece = malloc (sizeof(*piece));
 	if (!piece)
 		exit(EXIT_FAILURE);
-	piece->move_value = data;
+	piece->value = data;
 	piece->next = NULL;
 	if (stack->last == NULL)
 	{

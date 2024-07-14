@@ -66,3 +66,17 @@ int	check_not_numerical(char **tab)
 	return(0);
 }
 
+void	indexing(t_list *stack)
+{
+	t_item	*tmp;
+	int	i;
+
+	i = 0;
+	tmp = stack->first;
+	while(tmp)
+	{
+		tmp->index = i;
+		i++;
+		tmp= tmp->next;
+	}
+}

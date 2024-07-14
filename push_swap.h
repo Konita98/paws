@@ -23,6 +23,7 @@ struct s_item
 	int		value;
 	int		position;
 	int		cost;
+	int		index;
 	t_item	*next;
 	t_item	*previous;
 };
@@ -42,8 +43,13 @@ void	printlist(t_list	*stack);
 t_list	*initialize(void);
 t_list	*Stacking_end(t_list *stack, int data);
 t_list	*Stacking_front(t_list *stack, int data);
+void	get_position(t_list *stack);
+void	indexing(t_list *stack);
 void	swap(t_list *stack);
 void	rotate(t_list *stack);
 void	rev_rotate(t_list *stack);
 void	push(t_list *stack1, t_list *stack2);
+int	*move_rotate_rev(t_list *a, t_list *b, char *command);
+int	*move_swap_push(t_list *a, t_list *b, char *command);
+t_list	*push_swap(char **pile_tab);
 #endif /*__PUSH_SWAP_H__*/
