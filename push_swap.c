@@ -19,17 +19,12 @@ void	printlistposition(t_list	*stack)
 	p_temp = stack->first;
         while (p_temp != NULL)
         {
-            ft_printf("%d   %d\n", p_temp->value, p_temp->position);
+            ft_printf("%d   %d\n", p_temp->value, p_temp->pos);
             p_temp = p_temp->next;
         }
 }
 
-/*void	sorting_three_items(t_list *stack)
-{
-	get_position(stack);
-	if(stack->first->position == 1 && stack->first->next->position==)
-	
-}*/
+
 t_list	*push_swap(char **pile_tab)
 {
 	t_list	*a_stack;
@@ -39,6 +34,12 @@ t_list	*push_swap(char **pile_tab)
 	b_stack = initialize();
 	while(*pile_tab)
 		Stacking_end(a_stack, ft_atoi(*pile_tab++));
+	ft_printf("stack\n");
+	printlist(a_stack);
+	ft_printf("stack sorted\n");
+	if (a_stack->len == 3)
+		sort_three_items(a_stack, b_stack);
+	printlist(a_stack);
 	return(a_stack);
 }
 
@@ -56,5 +57,6 @@ int main(int argc, char *argv[])
 	a_stack = push_swap(formatted);
 	ft_printf("stack\n");
 	printlist(a_stack);
+	
 	return 0;
 }

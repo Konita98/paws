@@ -66,17 +66,19 @@ int	check_not_numerical(char **tab)
 	return(0);
 }
 
-void	indexing(t_list *stack)
+int	check_sorted(t_list *stack)
 {
-	t_item	*tmp;
-	int	i;
+	t_item	*p_temp;
 
-	i = 0;
-	tmp = stack->first;
-	while(tmp)
+	indexing(stack);
+	get_pos(stack);
+	p_temp = stack->first;
+	while(p_temp != NULL)
 	{
-		tmp->index = i;
-		i++;
-		tmp= tmp->next;
+		if (p_temp->pos != p_temp->index)
+			return (0);
+		p_temp = p_temp->next;
 	}
+	return (1);
 }
+

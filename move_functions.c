@@ -14,23 +14,23 @@
 
 int	move_rotate_rev(t_list *a, t_list *b, char *command)
 {
-	if (command == "ra")
-		rotate(a_stack);
-	if (command == "rb")
-		rotate(b_stack);
-	if (command == "rr")
+	if (ft_strncmp(command, "ra", ft_strlen(command)) == 0)
+		rotate(a);
+	if (ft_strncmp(command, "rb", ft_strlen(command)) == 0)
+		rotate(b);
+	if (ft_strncmp(command, "rr", ft_strlen(command)) == 0)
 	{
-		rotate(a_stack);
-		rotate(b_stack);
+		rotate(a);
+		rotate(b);
 	}
-	if (command == "rra")
-		rev_rotate(a_stack);
-	if (command == "rrb")
-		rev_rotate(b_stack);
-	if (command == "rrr")
+	if (ft_strncmp(command, "rra", ft_strlen(command)) == 0)
+		rev_rotate(a);
+	if (ft_strncmp(command, "rrb", ft_strlen(command)) == 0)
+		rev_rotate(b);
+	if (ft_strncmp(command, "rrr", ft_strlen(command)) == 0)
 	{
-		rev_rotate(a_stack);
-		rev_rotate(b_stack);
+		rev_rotate(a);
+		rev_rotate(b);
 	}
 	ft_printf("%s\n", command);
 	return (1);
@@ -38,19 +38,19 @@ int	move_rotate_rev(t_list *a, t_list *b, char *command)
 
 int	move_swap_push(t_list *a, t_list *b, char *command)
 {
-	if (command == "sa")
-		swap(a_stack);
-	if (command == "sb")
-		swap(b_stack);
-	if (command == "ss")
+	if (ft_strncmp(command, "sa", ft_strlen(command)) == 0)
+		swap(a);
+	if (ft_strncmp(command, "sb", ft_strlen(command)) == 0)
+		swap(b);
+	if (ft_strncmp(command, "ss", ft_strlen(command)) == 0)
 	{
-		swap(a_stack);
-		swap(b_stack);
+		swap(a);
+		swap(b);
 	}
-	if (command == "pa")
-		push(a_stack);
-	if (command == "pb")
-		push(b_stack);
+	if (ft_strncmp(command, "pa", ft_strlen(command)) == 0)
+		push(a, b);
+	if (ft_strncmp(command, "pb", ft_strlen(command)) == 0)
+		push(b, a);
 	ft_printf("%s\n", command);
 	return (1);
 }
@@ -99,7 +99,7 @@ int	*sort_formatted(t_list	*stack)
 	return (formatted_tab);	
 }
 
-void	get_position(t_list *stack)
+void	get_pos(t_list *stack)
 {
 	t_item	*p_temp;
 	int	*forma;
@@ -114,7 +114,7 @@ void	get_position(t_list *stack)
 		while ( i < stack->len)
 		{
 			if(p_temp->value == forma[i])
-				p_temp->position = i;
+				p_temp->pos = i;
 			i++;
 		}
 		p_temp = p_temp->next;

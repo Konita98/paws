@@ -42,7 +42,7 @@ t_list	*initialize(void)
 	if (!stack || !piece)
 		exit(EXIT_FAILURE);
 	piece->value = 0;
-	piece->position = 0;
+	piece->pos = 0;
 	piece->cost = 0;
 	piece->next = NULL;
 	piece->previous = NULL;

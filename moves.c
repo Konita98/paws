@@ -21,7 +21,7 @@ void	indexing(t_list *stack)
 	tmp = stack->first;
 	while(tmp)
 	{
-		tmp->index = i;
+		tmp->idx = i;
 		i++;
 		tmp= tmp->next;
 	}
