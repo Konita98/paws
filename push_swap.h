@@ -24,6 +24,7 @@ struct s_item
 	int		pos;
 	int		cost;
 	int		idx;
+	//t_lsmove	moves;
 	t_item	*next;
 	t_item	*previous;
 };
@@ -33,25 +34,41 @@ struct s_list
 	int		len;
 	t_item	*first;
 	t_item	*last;
-};	
+};
+/*typedef struct s_move	t_move;
+struct s_move
+{
+	char		*value;
+	t_move	*next;
+};
+typedef struct s_lsmove	t_lsmove;
+struct s_lsmove
+{
+	int	len;
+	t_move	*first;
+};	*/
 char	**formatargv(int argc, char *argv[]);
 int		len(char **tab);
 int		check_double(char **tab);
 int		ft_isspace(char str);
 int		check_not_numerical(char **tab);
 void	printlist(t_list	*stack);
+void	printlistposition(t_list	*stack);
 t_list	*initialize(void);
-t_list	*Stacking_end(t_list *stack, int data);
-t_list	*Stacking_front(t_list *stack, int data);
+t_list	*stacking_end(t_list *stack, int data);
+t_list	*stacking_front(t_list *stack, int data);
 void	get_pos(t_list *stack);
 void	indexing(t_list *stack);
 void	swap(t_list *stack);
 void	rotate(t_list *stack);
 void	rev_rotate(t_list *stack);
 void	push(t_list *stack1, t_list *stack2);
-int	move_rotate_rev(t_list *a, t_list *b, char *command);
-int	move_swap_push(t_list *a, t_list *b, char *command);
+void	move_rotate_rev(t_list *a, t_list *b, char *command);
+void	move_swap_push(t_list *a, t_list *b, char *command);
 int	check_sorted(t_list *stack);
 void	sort_three_items(t_list *stack1, t_list *stack2);
-t_list	*push_swap(char **pile_tab);
+void	sort_five_items(t_list *stack1, t_list *stack2);
+void	push_swap(int argc, char *argv[]);
+int	check_sortedinverse(t_list *stack);
+void	printindex(t_list	*stack);
 #endif /*__PUSH_SWAP_H__*/

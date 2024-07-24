@@ -46,7 +46,6 @@ void	swap(t_list *stack)
 	temp1->next = temp;
 	stack->first = temp1;
 	temp1->previous = NULL;
-	indexing(stack);
 }
 
 void	rotate(t_list *stack)
@@ -63,7 +62,6 @@ void	rotate(t_list *stack)
 	temp->previous = stack->last;
 	stack->last = temp;
 	stack->last->next = NULL;
-	indexing(stack);
 }
 
 void	rev_rotate(t_list *stack)
@@ -80,7 +78,6 @@ void	rev_rotate(t_list *stack)
 	temp->next = stack->first;
 	stack->first = temp;
 	stack->last->next = NULL;
-	indexing(stack);
 }
 
 void	push(t_list *stack1, t_list *stack2)
@@ -108,6 +105,6 @@ void	push(t_list *stack1, t_list *stack2)
 		temp->next = stack2->first;
 		stack2->first = temp;
 	}
-	indexing(stack1);
-	indexing(stack2);
+	stack1->len--;
+	stack2->len++;
 }

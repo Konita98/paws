@@ -52,7 +52,7 @@ t_list	*initialize(void)
 	return (stack);
 }
 
-t_list	*Stacking_end(t_list *stack, int data)
+t_list	*stacking_end(t_list *stack, int data)
 {
 	t_item	*piece;
 
@@ -77,7 +77,7 @@ t_list	*Stacking_end(t_list *stack, int data)
 	return (stack);
 }
 
-t_list	*Stacking_front(t_list *stack, int data)
+t_list	*stacking_front(t_list *stack, int data)
 {
 	t_item	*piece;
 
@@ -102,7 +102,7 @@ t_list	*Stacking_front(t_list *stack, int data)
 	return (stack);
 }
 
-t_list	*Stacking_end_for_move(t_list *stack, int data)
+t_list	*stacking_end_for_move(t_list *stack, int data)
 {
 	t_item	*piece;
 

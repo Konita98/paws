@@ -75,10 +75,25 @@ int	check_sorted(t_list *stack)
 	p_temp = stack->first;
 	while(p_temp != NULL)
 	{
-		if (p_temp->pos != p_temp->index)
+		if (p_temp->pos != p_temp->idx)
 			return (0);
 		p_temp = p_temp->next;
 	}
 	return (1);
 }
 
+int	check_sortedinverse(t_list *stack)
+{
+	t_item	*p_temp;
+
+	indexing(stack);
+	get_pos(stack);
+	p_temp = stack->first;
+	while(p_temp != NULL)
+	{
+		if (p_temp->pos != stack->len - 1 - p_temp->idx)
+			return (0);
+		p_temp = p_temp->next;
+	}
+	return (1);
+}

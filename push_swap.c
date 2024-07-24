@@ -1,51 +1,41 @@
 
 #include "push_swap.h"
 
-void	printlist(t_list *stack)
-{
-	t_item *p_temp;
-
-	p_temp = stack->first;
-        while (p_temp != NULL)
-        {
-            ft_printf("%d\n", p_temp->value);
-            p_temp = p_temp->next;
-        }
-}
-void	printlistposition(t_list	*stack)
-{
-	t_item *p_temp;
-
-	p_temp = stack->first;
-        while (p_temp != NULL)
-        {
-            ft_printf("%d   %d\n", p_temp->value, p_temp->pos);
-            p_temp = p_temp->next;
-        }
-}
-
-
-t_list	*push_swap(char **pile_tab)
+void	push_swap(int argc,char *argv[])
 {
 	t_list	*a_stack;
 	t_list	*b_stack;
+	char **pile_tab;
 
 	a_stack = initialize();
 	b_stack = initialize();
+	pile_tab = formatargv(argc, argv);
+	if (!pile_tab || check_not_numerical(pile_tab) || check_double(pile_tab))
+	{
+		ft_printf("Error\n");
+		exit(0);
+	}
 	while(*pile_tab)
-		Stacking_end(a_stack, ft_atoi(*pile_tab++));
+		stacking_end(a_stack, ft_atoi(*pile_tab++));
 	ft_printf("stack\n");
-	printlist(a_stack);
+	indexing(a_stack);
+	printindex(a_stack);
 	ft_printf("stack sorted\n");
 	if (a_stack->len == 3)
 		sort_three_items(a_stack, b_stack);
-	printlist(a_stack);
-	return(a_stack);
+	if (a_stack->len == 5)
+	{
+		sort_five_items(a_stack, b_stack);
+		ft_printf("b1\n");
+		printlistposition(b_stack);
+	}
+	indexing(a_stack);
+	get_pos(a_stack);
+	printlistposition(a_stack);
 }
 
 int main(int argc, char *argv[])
 {
-	t_list	*a_stack;
 	char	**formatted;
 
 	formatted = formatargv(argc, argv);
@@ -54,9 +44,7 @@ int main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (0);
 	}
-	a_stack = push_swap(formatted);
-	ft_printf("stack\n");
-	printlist(a_stack);
+	push_swap(argc, argv);
 	
 	return 0;
 }

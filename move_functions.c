@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	move_rotate_rev(t_list *a, t_list *b, char *command)
+void	move_rotate_rev(t_list *a, t_list *b, char *command)
 {
 	if (ft_strncmp(command, "ra", ft_strlen(command)) == 0)
 		rotate(a);
@@ -33,10 +33,9 @@ int	move_rotate_rev(t_list *a, t_list *b, char *command)
 		rev_rotate(b);
 	}
 	ft_printf("%s\n", command);
-	return (1);
 }
 
-int	move_swap_push(t_list *a, t_list *b, char *command)
+void	move_swap_push(t_list *a, t_list *b, char *command)
 {
 	if (ft_strncmp(command, "sa", ft_strlen(command)) == 0)
 		swap(a);
@@ -51,8 +50,9 @@ int	move_swap_push(t_list *a, t_list *b, char *command)
 		push(a, b);
 	if (ft_strncmp(command, "pb", ft_strlen(command)) == 0)
 		push(b, a);
+	indexing(a);
+	indexing(b);
 	ft_printf("%s\n", command);
-	return (1);
 }
 int	*formatted_int(t_list	*stack)
 {
