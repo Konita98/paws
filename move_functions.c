@@ -32,6 +32,8 @@ void	move_rotate_rev(t_list *a, t_list *b, char *command)
 		rev_rotate(a);
 		rev_rotate(b);
 	}
+	indexing(a);
+	indexing(b);
 	ft_printf("%s\n", command);
 }
 
@@ -50,9 +52,9 @@ void	move_swap_push(t_list *a, t_list *b, char *command)
 		push(a, b);
 	if (ft_strncmp(command, "pb", ft_strlen(command)) == 0)
 		push(b, a);
+	ft_printf("%s\n", command);
 	indexing(a);
 	indexing(b);
-	ft_printf("%s\n", command);
 }
 int	*formatted_int(t_list	*stack)
 {

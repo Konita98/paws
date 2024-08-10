@@ -66,9 +66,10 @@ void	push(t_list *stack1, t_list *stack2);
 void	move_rotate_rev(t_list *a, t_list *b, char *command);
 void	move_swap_push(t_list *a, t_list *b, char *command);
 int	check_sorted(t_list *stack);
+int	check_sortedinverse(t_list *stack);
 void	sort_three_items(t_list *stack1, t_list *stack2);
 void	sort_five_items(t_list *stack1, t_list *stack2);
 void	push_swap(int argc, char *argv[]);
-int	check_sortedinverse(t_list *stack);
 void	printindex(t_list	*stack);
+void	top_more_a(t_item *item, t_list *a, t_list *b);
 #endif /*__PUSH_SWAP_H__*/

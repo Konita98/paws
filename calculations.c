@@ -1,5 +1,42 @@
 #include "push_swap.h"
 
+void	top_more_a(t_item *item, t_list *a, t_list *b)
+{
+	while(item->idx != 0)
+	{
+		if(item->idx <= a->len / 2)
+			move_rotate_rev(a, b, "ra");
+		else if(item->idx > a->len / 2)
+			move_rotate_rev(a, b, "rra");
+		indexing(a);
+	}
+}
+
+t_item	*nearestmore(int posa, t_list	*stack) // qui est le plu inférieur à l'élément a dans b
+{
+	t_item	*item;
+	int	gap;
+
+	item = stack->first;
+	gap = 1;
+	indexing(stack);
+	while(gap < posa)
+	{
+		while(item != NULL)
+		{
+			if (item->pos == posa + gap)
+				return (item);
+			item = item->next;
+		}
+		gap++;
+	}
+	get_pos(stack);
+	item = stack->first;
+	while(item->pos != 0)
+				item = item->next;
+	return(item);
+}
+
 void	sort_three_items(t_list *a_stack, t_list *b_stack)
 {
 	while(check_sorted(a_stack) == 0)
@@ -17,12 +54,13 @@ void	sort_three_items(t_list *a_stack, t_list *b_stack)
 
 void	sort_reverse_three_items(t_list *a_stack, t_list *b_stack)
 {
-	
 	while(check_sortedinverse(b_stack) == 0)
 	{
 		if (b_stack->first->pos == 0 && b_stack->first->next->pos == 2)
 			move_swap_push(a_stack, b_stack, "rb");
-		if ((b_stack->first->pos == 2 && b_stack->first->next->pos == 0) || (b_stack->first->pos == 1 && b_stack->first->next->pos == 2) || (b_stack->first->pos == 0 && b_stack->first->next->pos == 1))
+		 if ((b_stack->first->pos == 2 && b_stack->first->next->pos == 0) 
+		|| (b_stack->first->pos == 1 && b_stack->first->next->pos == 2) 
+		|| (b_stack->first->pos == 0 && b_stack->first->next->pos == 1))
 			move_rotate_rev(a_stack, b_stack, "sb");
 		if (b_stack->first->pos == 1 && b_stack->first->next->pos == 0)
 			move_rotate_rev(a_stack, b_stack, "rrb");
@@ -32,25 +70,34 @@ void	sort_reverse_three_items(t_list *a_stack, t_list *b_stack)
 }
 void	sort_five_items(t_list *a_stack, t_list *b_stack)
 {
+	t_item	*nmore;
+
 	while(a_stack->len != 3)
-	{
 		move_swap_push(a_stack, b_stack, "pa");
-		ft_printf("%d", a_stack->len);
-	}
 	sort_three_items(a_stack, b_stack);
-	if(b_stack->len == 2 && check_sortedinverse(b_stack) == 0)
-		move_swap_push(a_stack, b_stack, "sb");
-	else if(b_stack->len == 3)
-		sort_reverse_three_items(a_stack, b_stack);	
+	ft_printf("%d", b_stack->len);
+	ft_printf("%d", check_sorted(b_stack));
+	ft_printf("\n b = \n");
+	printindex(b_stack);
+	ft_printf("\n");
+	ft_printf("\n a = \n");
+	printindex(a_stack);
+	ft_printf("\n");
+	if(b_stack->len == 2 && check_sorted(b_stack) == 1)
+		move_rotate_rev(a_stack, b_stack, "rb");
 	while(b_stack->len != 0)
-		move_swap_push(a_stack, b_stack, "pb");	
+	{
+		nmore = nearestmore(b_stack->first->pos, a_stack);
+		top_more_a(nmore, a_stack, b_stack);
+		///move_swap_push(a_stack, b_stack, "pb");
+	}
 }
-t_item	*nearestless(int posa, t_list	*stackb) // qui est le plu inférieur à l'élément a dans b
+/*t_item	*nearestless(int posa, t_list	*stack) // qui est le plu inférieur à l'élément a dans b
 {
 	t_item	*item;
 	int	gap;
 
-	item = stackb->first;
+	item = stack->first;
 	gap = 1;
 	while(gap < posa)
 	{
@@ -59,12 +106,12 @@ t_item	*nearestless(int posa, t_list	*stackb) // qui est le plu inférieur à l'
 			if (item->pos == posa - gap)
 				return (item);
 			item = item->next;
-				
 		}
 		gap++;
 	}
 	return(NULL);
-}
+}*/
+
 
 /*t_lsmove	*initializemove(void)
 {
