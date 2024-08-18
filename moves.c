@@ -62,6 +62,7 @@ void	rotate(t_list *stack)
 	temp->previous = stack->last;
 	stack->last = temp;
 	stack->last->next = NULL;
+	indexing(stack);
 }
 
 void	rev_rotate(t_list *stack)
@@ -78,6 +79,8 @@ void	rev_rotate(t_list *stack)
 	temp->next = stack->first;
 	stack->first = temp;
 	stack->last->next = NULL;
+	indexing(stack);
+	//printindex(stack);
 }
 
 void	push(t_list *stack1, t_list *stack2)

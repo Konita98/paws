@@ -17,21 +17,21 @@ void	push_swap(int argc,char *argv[])
 	}
 	while(*pile_tab)
 		stacking_end(a_stack, ft_atoi(*pile_tab++));
-	ft_printf("stack\n");
+	//ft_printf("stack\n");
 	indexing(a_stack);
-	printindex(a_stack);
-	ft_printf("stack sorted\n");
+	//printindex(a_stack);
+	//ft_printf("stack sorted\n");
 	if (a_stack->len == 3)
 		sort_three_items(a_stack, b_stack);
-	if (a_stack->len == 5)
+	else if (a_stack->len > 3 || a_stack->len <= 6 )
 	{
-		sort_five_items(a_stack, b_stack);
-		ft_printf("b1\n");
-		printlistposition(b_stack);
+		sort_four_to_six_items(a_stack, b_stack);
+		//ft_printf("b1\n");
+		//printlistposition(b_stack);
 	}
 	indexing(a_stack);
 	get_pos(a_stack);
-	printlistposition(a_stack);
+	//printindex(a_stack);
 }
 
 int main(int argc, char *argv[])
