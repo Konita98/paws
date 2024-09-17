@@ -92,7 +92,7 @@ t_item	*nearestmore(int val, t_list	*stack) // qui est le plu inférieur à l'é
 	return(item);
 }
 
-t_item	*nearestless(int val, t_list	*stack) // qui est le plu inférieur à l'élément a dans b
+t_item	*nearestless(int val, t_list	*stack) // qui est le plu inférieur à l'élément a dans b, all that shit
 {
 	t_item	*item;
 	int	gap;
