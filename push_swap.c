@@ -17,8 +17,13 @@ void	push_swap(int argc,char *argv[])
 	}
 	while(*pile_tab)
 		stacking_end(a_stack, ft_atoi(*pile_tab++));
+		
+	
 	//ft_printf("stack\n");
 	indexing(a_stack);
+	
+	ft_printf("\nstack before\n");
+	printlistposition(a_stack);
 	//printindex(a_stack);
 	//ft_printf("stack sorted\n");
 	if (a_stack->len == 3)
@@ -31,7 +36,9 @@ void	push_swap(int argc,char *argv[])
 	}
 	indexing(a_stack);
 	get_pos(a_stack);
-	//printindex(a_stack);
+	
+	ft_printf("\nstack after\n");
+	printlistposition(a_stack);
 }
 
 int main(int argc, char *argv[])

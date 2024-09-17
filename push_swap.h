@@ -73,7 +73,12 @@ void	sort_rev_three_items(t_list *a_stack, t_list *b_stack);
 void	push_swap(int argc, char *argv[]);
 void	printindex(t_list	*stack);
 void	top_more_a(t_item *item, t_list *a, t_list *b);
+void	top_more_b(t_item *item, t_list *a, t_list *b);
+void	rearrfromnsorta(t_list *a_stack, t_list *b_stack);
 t_item	*min(t_list *ab);
 t_item	*max(t_list *ab);
 t_item	*nearestmore(int val, t_list	*stack);
+t_item	*nearestless(int val, t_list	*stack);
+t_item	*cheapest(t_list *a, t_list *b);
+void sortmore(t_list *a, t_list *b);
 #endif /*__PUSH_SWAP_H__*/
